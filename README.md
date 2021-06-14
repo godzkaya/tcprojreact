@@ -1,1 +1,1 @@
-# Validates person if exist and legit using TCKimlikNoDogrula service 
+Validate person if exist and legit using TCKimlikNoDogrula service 
