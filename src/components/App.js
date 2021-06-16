@@ -13,10 +13,10 @@ class App extends React.Component{
         let xmls = '<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">\
         <soap:Body>\
           <TCKimlikNoDogrula xmlns="http://tckimlik.nvi.gov.tr/WS">\
-            <TCKimlikNo>16192768550</TCKimlikNo>\
-            <Ad>uğur mahir</Ad>\
-            <Soyad>özkaya</Soyad>\
-            <DogumYili>1989</DogumYili>\
+            <TCKimlikNo>' + credentials.tcno + '</TCKimlikNo>\
+            <Ad>' + credentials.username + '</Ad>\
+            <Soyad>' + credentials.surname + '</Soyad>\
+            <DogumYili>' + credentials.birth + '</DogumYili>\
           </TCKimlikNoDogrula>\
         </soap:Body>\
         </soap:Envelope>';

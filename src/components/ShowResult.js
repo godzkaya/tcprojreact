@@ -3,30 +3,27 @@ import xml2js from 'xml2js'
 
 class ShowResult extends React.Component{
 
-    state = {userData: ''}
-
-    getData(){
+    convertXMLtoJSON(){
 
         let parser = new xml2js.Parser();
+
+        let realData;
 
         parser.parseString(this.props.userData,
             (err, result) => {
                 if(result){
-                    /*this.setState({userData: result["soap:Envelope"]["soap:Body"][0].TCKimlikNoDogrulaResponse[0].TCKimlikNoDogrulaResult[0]})*/
-                    
-                    this.setState({userData: 123})
+                    realData = result["soap:Envelope"]["soap:Body"][0].TCKimlikNoDogrulaResponse[0].TCKimlikNoDogrulaResult[0]
                 }
             }
         );
-
-        return this.state.userData
-	
+           
+        return realData;
     }
 
     render(){
         return (
             <div>
-                {this.getData()}
+                {this.convertXMLtoJSON()}
             </div>
         )
     }
