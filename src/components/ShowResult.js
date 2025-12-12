@@ -21,9 +21,26 @@ class ShowResult extends React.Component{
     }
 
     render(){
+        const result = this.convertXMLtoJSON();
+
+        if (!result) {
+            return null;
+        }
+
+        const isValid = result === 'true';
+
         return (
-            <div>
-                {this.convertXMLtoJSON()}
+            <div className="ui container" style={{marginTop: '30px'}}>
+                <div className={`ui message ${isValid ? 'success' : 'error'}`}>
+                    <div className="header">
+                        {isValid ? 'Doğrulama Başarılı ✓' : 'Doğrulama Başarısız ✗'}
+                    </div>
+                    <p>
+                        {isValid
+                            ? 'Girdiğiniz bilgiler doğrulandı.'
+                            : 'Girdiğiniz bilgiler doğrulanamadı. Lütfen bilgilerinizi kontrol edin.'}
+                    </p>
+                </div>
             </div>
         )
     }
