@@ -23,13 +23,55 @@ class IdentityCheck extends React.Component{
 
     render(){
         return(
-            <form onSubmit={this.getCredentials}>
-                <input type='text' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
-                <input type='text' value={this.state.surname} onChange={e => this.setState({surname: e.target.value})}/>
-                <input type='number' value={this.state.tcno} onChange={e => this.setState({tcno: e.target.value})}/>
-                <input type='number' value={this.state.birth} onChange={e => this.setState({birth: e.target.value})}/>
-                <button type='submit'>Send</button>
-            </form>
+            <div className="ui container" style={{marginTop: '50px'}}>
+                <h2 className="ui header">TC Kimlik Doğrulama</h2>
+                <form className="ui form" onSubmit={this.getCredentials}>
+                    <div className="field">
+                        <label>Ad</label>
+                        <input
+                            type='text'
+                            placeholder='Adınızı giriniz'
+                            value={this.state.username}
+                            onChange={e => this.setState({username: e.target.value})}
+                            required
+                        />
+                    </div>
+                    <div className="field">
+                        <label>Soyad</label>
+                        <input
+                            type='text'
+                            placeholder='Soyadınızı giriniz'
+                            value={this.state.surname}
+                            onChange={e => this.setState({surname: e.target.value})}
+                            required
+                        />
+                    </div>
+                    <div className="field">
+                        <label>TC Kimlik No</label>
+                        <input
+                            type='text'
+                            placeholder='11 haneli TC kimlik numaranız'
+                            value={this.state.tcno}
+                            onChange={e => this.setState({tcno: e.target.value})}
+                            maxLength="11"
+                            required
+                        />
+                    </div>
+                    <div className="field">
+                        <label>Doğum Yılı</label>
+                        <input
+                            type='number'
+                            placeholder='Örn: 1990'
+                            value={this.state.birth}
+                            onChange={e => this.setState({birth: e.target.value})}
+                            min="1900"
+                            max="2025"
+                            required
+                        />
+                    </div>
+                    <button className="ui primary button" type='submit'>Doğrula</button>
+                </form>
+            </div>
         )
     }
 
